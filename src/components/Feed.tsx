@@ -1,18 +1,15 @@
-import React from 'react';
-import Post from "@/components/Post";
+import React from 'react'
+import Post from '@/components/Post'
 
-interface FeedProps {
+const Feed = () => {
+   return (
+      <div>
+         <Post />
+         <Post />
+         <Post />
+         <Post />
+      </div>
+   )
 }
 
-const Feed = (props: FeedProps) => {
-    return (
-        <div>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-        </div>
-    );
-};
-
-export default Feed;
+export default Feed

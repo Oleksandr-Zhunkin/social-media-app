@@ -4,9 +4,7 @@ import PopularTags from '@/components/PopularTags'
 import Recommendations from '@/components/Recommendations'
 import Link from 'next/link'
 
-interface RightSideBarProps {}
-
-const RightSideBar = (props: RightSideBarProps) => {
+const RightSideBar = () => {
    return (
       <div className="pt-4 flex flex-col gap-4 sticky top-0 h-max">
          <Search />

@@ -2,9 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import OptimizerImage from '@/components/Image'
 
-interface RecommendationsProps {}
-
-const Recommendations = (props: RecommendationsProps) => {
+const Recommendations = () => {
    return (
       <div className="p-4 rounded-2xl border border-borderGray flex flex-col gap-4">
          {/* User Card */}

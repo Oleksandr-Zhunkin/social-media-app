@@ -1,15 +1,12 @@
 import React from 'react'
-import { Open_Sans } from 'next/dist/compiled/@next/font/dist/google'
 import OptimizerImage from '@/components/Image'
 import Link from 'next/link'
 
-interface PopularTagsProps {}
-
-const PopularTags = (props: PopularTagsProps) => {
+const PopularTags = () => {
    return (
       <div className="p-4 rounded-2xl border border-borderGray flex flex-col gap-4">
          <h1 className="text-xl font-bold text-textGrayLight">
-            What's Happening
+            What&apos;s Happening
          </h1>
          {/*Trends*/}
          <div className="flex gap-4">
@@ -24,7 +21,7 @@ const PopularTags = (props: PopularTagsProps) => {
             </div>
             <div className="flex-1">
                <h2 className="font-bold text-textGrayLight">
-                  Meeting: "Save our nature"
+                  Meeting: &quot;Save our nature&quot;
                </h2>
                <span className="text-sm text-textGray">Yesterday</span>
             </div>

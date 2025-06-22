@@ -6,9 +6,7 @@ import Image from 'next/image'
 import { shareAction } from '@/actions'
 import ImageEditor from '@/components/ImageEditor'
 
-interface ShareProps {}
-
-const Share = (props: ShareProps) => {
+const Share = () => {
    const [media, setMediaSet] = React.useState<File | null>(null)
    const [isEditorOpen, setEditorOpen] = React.useState<boolean>(false)
    const [settings, setSettings] = React.useState<{

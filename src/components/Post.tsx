@@ -5,8 +5,6 @@ import PostInteractions from '@/components/PostInteractions'
 import { imagekit } from '@/utils'
 import OptimizerVideo from '@/components/Video'
 
-interface PostProps {}
-
 interface FileDetailsResponse {
    width: number
    height: number
@@ -18,7 +16,7 @@ interface FileDetailsResponse {
    }
 }
 
-const Post = async (props: PostProps) => {
+const Post = async () => {
    const getFileDetails = async (
       fileId: string
    ): Promise<FileDetailsResponse> => {
@@ -79,18 +77,11 @@ const Post = async (props: PostProps) => {
                {/*Text & Media*/}
                <p className="">
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
+                  typesetting industry. Lorem Ipsum has been the industry
                   standard dummy text ever since the 1500s, when an unknown
                   printer took a galley of type and scrambled it to make a type
                   specimen book.
                </p>
-
-               {/*<OptimizerImage*/}
-               {/*   src="general/post.jpg"*/}
-               {/*   alt="nature image"*/}
-               {/*   width={600}*/}
-               {/*   height={600}*/}
-               {/*/>*/}
                {fileDetails && fileDetails.fileType === 'image' ? (
                   <OptimizerImage
                      src={fileDetails.filePath}

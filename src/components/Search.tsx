@@ -1,9 +1,7 @@
 import React from 'react'
 import OptimizerImage from '@/components/Image'
 
-interface SearchProps {}
-
-const Search = (props: SearchProps) => {
+const Search = () => {
    return (
       <div className="bg-inputGray px-4 py-2 flex items-center gap-4 rounded-full">
          <OptimizerImage
