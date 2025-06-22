@@ -4,6 +4,7 @@ import PostInfo from '@/components/PostInfo'
 import PostInteractions from '@/components/PostInteractions'
 import { imagekit } from '@/utils'
 import OptimizerVideo from '@/components/Video'
+import Link from 'next/link'
 
 interface FileDetailsResponse {
    width: number
@@ -16,7 +17,7 @@ interface FileDetailsResponse {
    }
 }
 
-const Post = async () => {
+const Post = async ({ type }: { type?: 'status' | 'comment' }) => {
    const getFileDetails = async (
       fileId: string
    ): Promise<FileDetailsResponse> => {
@@ -52,9 +53,11 @@ const Post = async () => {
             <span>Alex reposted</span>
          </div>
          {/* Post content */}
-         <div className="flex gap-4">
+         <div className={`flex gap-4 ${type === 'status' && 'flex-col'}`}>
             {/*Avatar*/}
-            <div className="relative w-10 h-10 rounded-full overflow-hidden">
+            <div
+               className={`${type === 'status' && 'hidden'} relative w-10 h-10 rounded-full overflow-hidden`}
+            >
                <OptimizerImage
                   src="general/avatar.jpg"
                   alt="avatar image"
@@ -63,25 +66,50 @@ const Post = async () => {
                   transformation={true}
                />
             </div>
-            {/*Post content*/}
+            {/*Content*/}
             <div className="flex-1 flex flex-col gap-2">
                {/*Top*/}
-               <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 flex-wrap">
-                     <h1 className="text-md font-bold">Alex Dev</h1>
-                     <span className="text-textGray">@alexDev</span>
-                     <span className="text-textGray">1 day ago</span>
-                  </div>
+               <div className="w-full flex justify-between">
+                  <Link href={`/tests`} className="flex gap-4">
+                     <div
+                        className={`${type !== 'status' && 'hidden'} relative w-10 h-10 rounded-full overflow-hidden`}
+                     >
+                        <OptimizerImage
+                           src="general/avatar.jpg"
+                           alt="avatar image"
+                           width={50}
+                           height={50}
+                           transformation={true}
+                        />
+                     </div>
+                     <div
+                        className={`flex items-center gap-2 flex-wrap ${type === 'status' && 'flex-col !gap-0 !items-start'}`}
+                     >
+                        <h1 className="text-md font-bold">Alex Dev</h1>
+                        <span
+                           className={`text-textGray ${type === 'status' && 'text-[15px]'}`}
+                        >
+                           @alexDev
+                        </span>
+                        {type !== 'status' && (
+                           <span className="text-textGray">1 day ago</span>
+                        )}
+                     </div>
+                  </Link>
+
                   <PostInfo />
                </div>
                {/*Text & Media*/}
-               <p className="">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
-               </p>
+               <Link href={`/AlexDev/status/12`}>
+                  <p className={`${type === 'status' && 'text-lg'} `}>
+                     Lorem Ipsum is simply dummy text of the printing and
+                     typesetting industry. Lorem Ipsum has been the industry
+                     standard dummy text ever since the 1500s, when an unknown
+                     printer took a galley of type and scrambled it to make a
+                     type specimen book.
+                  </p>
+               </Link>
+
                {fileDetails && fileDetails.fileType === 'image' ? (
                   <OptimizerImage
                      src={fileDetails.filePath}
@@ -101,6 +129,9 @@ const Post = async () => {
                   />
                )}
                {/*Interactions*/}
+               {type === 'status' && (
+                  <span className="text-textGray">6:15 AM Nov 3, 2020</span>
+               )}
                <PostInteractions />
             </div>
          </div>

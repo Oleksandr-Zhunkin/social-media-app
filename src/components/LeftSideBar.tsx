@@ -98,7 +98,7 @@ const LeftSideBar = () => {
             </div>
             {/* button */}
             <Link
-               href="/"
+               href="/compose/post"
                className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
             >
                <OptimizerImage
@@ -109,7 +109,7 @@ const LeftSideBar = () => {
                />
             </Link>
             <Link
-               href="/"
+               href="/compose/post"
                className="hidden xxl:block bg-white text-black rounded-full font-bold py-2 px-20"
             >
                Post
