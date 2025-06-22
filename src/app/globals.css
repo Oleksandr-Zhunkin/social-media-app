@@ -1,5 +1,21 @@
 @import "tailwindcss";
-@tailwind utilities;
+
+@theme {
+    --breakpoint-xsm: 500px;
+    --breakpoint-sm: 600px;
+    --breakpoint-md: 700px;
+    --breakpoint-lg: 990px;
+    --breakpoint-xl: 1080px;
+    --breakpoint-xxl: 1260px;
+
+    --color-textGray: oklch(0.527 0.045 278.6);
+    --color-textGrayLight: oklch(0.954 0.012 278.6);
+    --color-borderGray: oklch(0.312 0.012 278.6);
+    --color-inputGray: oklch(0.222 0.012 278.6);
+    --color-iconBlue: oklch(0.715 0.181 248.7);
+    --color-iconGreen: oklch(0.784 0.181 151.7);
+    --color-iconPink: oklch(0.684 0.233 22.6);
+}
 
 body {
     color: #ededed;
